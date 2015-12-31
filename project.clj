@@ -12,7 +12,7 @@
                  [hiccups "0.3.0"]]
   :main ^:skip-aot tic-tac-toe.core
   :plugins [[lein-ring "0.8.12"]
-            [lein-cljsbuild "1.0.4-SNAPSHOT"]]
+            [lein-cljsbuild "1.1.2"]]
   :ring {:handler tic-tac-toe.core/app}
 
 

@@ -5,7 +5,7 @@
             [hiccups.runtime :as hiccupsrt]
             [tic-tac-toe.game :as game])
   (:require-macros [hiccups.core :as h]))
-
+ 
 (enable-console-print!)
 
 (def picture-map {:e "/empty.png" :x "/cross.png" :o "/nought.png"})
