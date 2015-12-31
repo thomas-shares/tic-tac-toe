@@ -29929,8 +29929,8 @@ tic_tac_toe.game.blank_board = new cljs.core.PersistentVector(null, 9, 5, cljs.c
 "e", 1381269198), new cljs.core.Keyword(null, "e", "e", 1381269198)], null);
 tic_tac_toe.game.poses = cljs.core.range.call(null, 9);
 tic_tac_toe.game.available_squares = function tic_tac_toe$game$available_squares(board) {
-  return cljs.core.filter.call(null, function(p1__10274_SHARP_) {
-    return cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "e", "e", 1381269198), board.call(null, p1__10274_SHARP_));
+  return cljs.core.filter.call(null, function(p1__11788_SHARP_) {
+    return cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "e", "e", 1381269198), board.call(null, p1__11788_SHARP_));
   }, tic_tac_toe.game.poses);
 };
 tic_tac_toe.game.zip = function tic_tac_toe$game$zip(rest) {
@@ -29947,8 +29947,8 @@ tic_tac_toe.game.winning_partitions = function tic_tac_toe$game$winning_partitio
 };
 tic_tac_toe.game.player_has_won = function tic_tac_toe$game$player_has_won(player, partitions) {
   return cljs.core.some.call(null, function(partition) {
-    return cljs.core.every_QMARK_.call(null, function(p1__10275_SHARP_) {
-      return cljs.core._EQ_.call(null, player, p1__10275_SHARP_);
+    return cljs.core.every_QMARK_.call(null, function(p1__11789_SHARP_) {
+      return cljs.core._EQ_.call(null, player, p1__11789_SHARP_);
     }, partition);
   }, partitions);
 };
@@ -29976,23 +29976,23 @@ tic_tac_toe.game.other_player = function tic_tac_toe$game$other_player(who) {
   }
 };
 tic_tac_toe.game.score_board = function tic_tac_toe$game$score_board(board, who) {
-  var pred__10279 = cljs.core._EQ_;
-  var expr__10280 = tic_tac_toe.game.get_game_state.call(null, board);
-  if (cljs.core.truth_(pred__10279.call(null, who, expr__10280))) {
+  var pred__11793 = cljs.core._EQ_;
+  var expr__11794 = tic_tac_toe.game.get_game_state.call(null, board);
+  if (cljs.core.truth_(pred__11793.call(null, who, expr__11794))) {
     return 100;
   } else {
-    if (cljs.core.truth_(pred__10279.call(null, tic_tac_toe.game.other_player.call(null, who), expr__10280))) {
+    if (cljs.core.truth_(pred__11793.call(null, tic_tac_toe.game.other_player.call(null, who), expr__11794))) {
       return -100;
     } else {
-      if (cljs.core.truth_(pred__10279.call(null, new cljs.core.Keyword(null, "draw", "draw", 1358331674), expr__10280))) {
+      if (cljs.core.truth_(pred__11793.call(null, new cljs.core.Keyword(null, "draw", "draw", 1358331674), expr__11794))) {
         return 0;
       } else {
-        if (cljs.core.truth_(pred__10279.call(null, new cljs.core.Keyword(null, "ongoing", "ongoing", -30673877), expr__10280))) {
+        if (cljs.core.truth_(pred__11793.call(null, new cljs.core.Keyword(null, "ongoing", "ongoing", -30673877), expr__11794))) {
           var other_players_move = tic_tac_toe.game.choose_move.call(null, board, tic_tac_toe.game.other_player.call(null, who));
           var score = cljs.core.second.call(null, other_players_move);
           return -1 * score;
         } else {
-          throw new Error([cljs.core.str("No matching clause: "), cljs.core.str(expr__10280)].join(""));
+          throw new Error([cljs.core.str("No matching clause: "), cljs.core.str(expr__11794)].join(""));
         }
       }
     }
@@ -30006,8 +30006,8 @@ tic_tac_toe.game.score_move = function tic_tac_toe$game$score_move(board, who, p
 tic_tac_toe.game.choose_move = function tic_tac_toe$game$choose_move(board, who) {
   var open_spaces = tic_tac_toe.game.available_squares.call(null, board);
   var weighted_moves = cljs.core.map.call(null, function(open_spaces) {
-    return function(p1__10282_SHARP_) {
-      return tic_tac_toe.game.score_move.call(null, board, who, p1__10282_SHARP_);
+    return function(p1__11796_SHARP_) {
+      return tic_tac_toe.game.score_move.call(null, board, who, p1__11796_SHARP_);
     };
   }(open_spaces), open_spaces);
   var best_move = cljs.core.first.call(null, cljs.core.sort_by.call(null, cljs.core.second, cljs.core._GT_, weighted_moves));
@@ -38963,55 +38963,55 @@ tic_tac_toe.core.new_game_BANG_ = function tic_tac_toe$core$new_game_BANG_() {
   return cljs.core.reset_BANG_.call(null, tic_tac_toe.core.game_state, tic_tac_toe.game.blank_board);
 };
 tic_tac_toe.core.update_dom = function tic_tac_toe$core$update_dom(board) {
-  var seq__7372 = cljs.core.seq.call(null, cljs.core.range.call(null, 9));
-  var chunk__7373 = null;
-  var count__7374 = 0;
-  var i__7375 = 0;
+  var seq__11803 = cljs.core.seq.call(null, cljs.core.range.call(null, 9));
+  var chunk__11804 = null;
+  var count__11805 = 0;
+  var i__11806 = 0;
   while (true) {
-    if (i__7375 < count__7374) {
-      var i = cljs.core._nth.call(null, chunk__7373, i__7375);
-      var value_7376 = board.call(null, i);
-      var node_7377 = domina.by_id.call(null, [cljs.core.str(i)].join(""));
-      domina.set_attr_BANG_.call(null, node_7377, new cljs.core.Keyword(null, "src", "src", -1651076051), value_7376.call(null, tic_tac_toe.core.picture_map));
+    if (i__11806 < count__11805) {
+      var i = cljs.core._nth.call(null, chunk__11804, i__11806);
+      var value_11807 = board.call(null, i);
+      var node_11808 = domina.by_id.call(null, [cljs.core.str(i)].join(""));
+      domina.set_attr_BANG_.call(null, node_11808, new cljs.core.Keyword(null, "src", "src", -1651076051), value_11807.call(null, tic_tac_toe.core.picture_map));
       domina.set_text_BANG_.call(null, domina.by_id.call(null, "game-state"), [cljs.core.str("Game state: "), cljs.core.str(tic_tac_toe.game.get_game_state.call(null, board))].join(""));
-      var G__7378 = seq__7372;
-      var G__7379 = chunk__7373;
-      var G__7380 = count__7374;
-      var G__7381 = i__7375 + 1;
-      seq__7372 = G__7378;
-      chunk__7373 = G__7379;
-      count__7374 = G__7380;
-      i__7375 = G__7381;
+      var G__11809 = seq__11803;
+      var G__11810 = chunk__11804;
+      var G__11811 = count__11805;
+      var G__11812 = i__11806 + 1;
+      seq__11803 = G__11809;
+      chunk__11804 = G__11810;
+      count__11805 = G__11811;
+      i__11806 = G__11812;
       continue;
     } else {
-      var temp__4425__auto__ = cljs.core.seq.call(null, seq__7372);
+      var temp__4425__auto__ = cljs.core.seq.call(null, seq__11803);
       if (temp__4425__auto__) {
-        var seq__7372__$1 = temp__4425__auto__;
-        if (cljs.core.chunked_seq_QMARK_.call(null, seq__7372__$1)) {
-          var c__5494__auto__ = cljs.core.chunk_first.call(null, seq__7372__$1);
-          var G__7382 = cljs.core.chunk_rest.call(null, seq__7372__$1);
-          var G__7383 = c__5494__auto__;
-          var G__7384 = cljs.core.count.call(null, c__5494__auto__);
-          var G__7385 = 0;
-          seq__7372 = G__7382;
-          chunk__7373 = G__7383;
-          count__7374 = G__7384;
-          i__7375 = G__7385;
+        var seq__11803__$1 = temp__4425__auto__;
+        if (cljs.core.chunked_seq_QMARK_.call(null, seq__11803__$1)) {
+          var c__5494__auto__ = cljs.core.chunk_first.call(null, seq__11803__$1);
+          var G__11813 = cljs.core.chunk_rest.call(null, seq__11803__$1);
+          var G__11814 = c__5494__auto__;
+          var G__11815 = cljs.core.count.call(null, c__5494__auto__);
+          var G__11816 = 0;
+          seq__11803 = G__11813;
+          chunk__11804 = G__11814;
+          count__11805 = G__11815;
+          i__11806 = G__11816;
           continue;
         } else {
-          var i = cljs.core.first.call(null, seq__7372__$1);
-          var value_7386 = board.call(null, i);
-          var node_7387 = domina.by_id.call(null, [cljs.core.str(i)].join(""));
-          domina.set_attr_BANG_.call(null, node_7387, new cljs.core.Keyword(null, "src", "src", -1651076051), value_7386.call(null, tic_tac_toe.core.picture_map));
+          var i = cljs.core.first.call(null, seq__11803__$1);
+          var value_11817 = board.call(null, i);
+          var node_11818 = domina.by_id.call(null, [cljs.core.str(i)].join(""));
+          domina.set_attr_BANG_.call(null, node_11818, new cljs.core.Keyword(null, "src", "src", -1651076051), value_11817.call(null, tic_tac_toe.core.picture_map));
           domina.set_text_BANG_.call(null, domina.by_id.call(null, "game-state"), [cljs.core.str("Game state: "), cljs.core.str(tic_tac_toe.game.get_game_state.call(null, board))].join(""));
-          var G__7388 = cljs.core.next.call(null, seq__7372__$1);
-          var G__7389 = null;
-          var G__7390 = 0;
-          var G__7391 = 0;
-          seq__7372 = G__7388;
-          chunk__7373 = G__7389;
-          count__7374 = G__7390;
-          i__7375 = G__7391;
+          var G__11819 = cljs.core.next.call(null, seq__11803__$1);
+          var G__11820 = null;
+          var G__11821 = 0;
+          var G__11822 = 0;
+          seq__11803 = G__11819;
+          chunk__11804 = G__11820;
+          count__11805 = G__11821;
+          i__11806 = G__11822;
           continue;
         }
       } else {
@@ -39035,45 +39035,45 @@ tic_tac_toe.core.make_move = function tic_tac_toe$core$make_move(board, pos) {
 tic_tac_toe.core.init = function tic_tac_toe$core$init() {
   tic_tac_toe.core.new_game_BANG_.call(null);
   domina.append_BANG_.call(null, domina.by_id.call(null, "board"), [cljs.core.str("\x3ccenter"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3ctable"), cljs.core.str(' border\x3d"1px solid black"'), cljs.core.str("\x3e"), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function() {
-    var iter__5463__auto__ = function tic_tac_toe$core$init_$_iter__7420(s__7421) {
+    var iter__5463__auto__ = function tic_tac_toe$core$init_$_iter__11851(s__11852) {
       return new cljs.core.LazySeq(null, function() {
-        var s__7421__$1 = s__7421;
+        var s__11852__$1 = s__11852;
         while (true) {
-          var temp__4425__auto__ = cljs.core.seq.call(null, s__7421__$1);
+          var temp__4425__auto__ = cljs.core.seq.call(null, s__11852__$1);
           if (temp__4425__auto__) {
-            var s__7421__$2 = temp__4425__auto__;
-            if (cljs.core.chunked_seq_QMARK_.call(null, s__7421__$2)) {
-              var c__5461__auto__ = cljs.core.chunk_first.call(null, s__7421__$2);
+            var s__11852__$2 = temp__4425__auto__;
+            if (cljs.core.chunked_seq_QMARK_.call(null, s__11852__$2)) {
+              var c__5461__auto__ = cljs.core.chunk_first.call(null, s__11852__$2);
               var size__5462__auto__ = cljs.core.count.call(null, c__5461__auto__);
-              var b__7423 = cljs.core.chunk_buffer.call(null, size__5462__auto__);
+              var b__11854 = cljs.core.chunk_buffer.call(null, size__5462__auto__);
               if (function() {
-                var i__7422 = 0;
+                var i__11853 = 0;
                 while (true) {
-                  if (i__7422 < size__5462__auto__) {
-                    var row_number = cljs.core._nth.call(null, c__5461__auto__, i__7422);
-                    cljs.core.chunk_append.call(null, b__7423, [cljs.core.str("\x3ctr"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function() {
-                      var iter__5463__auto__ = function(i__7422, row_number, c__5461__auto__, size__5462__auto__, b__7423, s__7421__$2, temp__4425__auto__) {
-                        return function tic_tac_toe$core$init_$_iter__7420_$_iter__7432(s__7433) {
-                          return new cljs.core.LazySeq(null, function(i__7422, row_number, c__5461__auto__, size__5462__auto__, b__7423, s__7421__$2, temp__4425__auto__) {
+                  if (i__11853 < size__5462__auto__) {
+                    var row_number = cljs.core._nth.call(null, c__5461__auto__, i__11853);
+                    cljs.core.chunk_append.call(null, b__11854, [cljs.core.str("\x3ctr"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function() {
+                      var iter__5463__auto__ = function(i__11853, row_number, c__5461__auto__, size__5462__auto__, b__11854, s__11852__$2, temp__4425__auto__) {
+                        return function tic_tac_toe$core$init_$_iter__11851_$_iter__11863(s__11864) {
+                          return new cljs.core.LazySeq(null, function(i__11853, row_number, c__5461__auto__, size__5462__auto__, b__11854, s__11852__$2, temp__4425__auto__) {
                             return function() {
-                              var s__7433__$1 = s__7433;
+                              var s__11864__$1 = s__11864;
                               while (true) {
-                                var temp__4425__auto____$1 = cljs.core.seq.call(null, s__7433__$1);
+                                var temp__4425__auto____$1 = cljs.core.seq.call(null, s__11864__$1);
                                 if (temp__4425__auto____$1) {
-                                  var s__7433__$2 = temp__4425__auto____$1;
-                                  if (cljs.core.chunked_seq_QMARK_.call(null, s__7433__$2)) {
-                                    var c__5461__auto____$1 = cljs.core.chunk_first.call(null, s__7433__$2);
+                                  var s__11864__$2 = temp__4425__auto____$1;
+                                  if (cljs.core.chunked_seq_QMARK_.call(null, s__11864__$2)) {
+                                    var c__5461__auto____$1 = cljs.core.chunk_first.call(null, s__11864__$2);
                                     var size__5462__auto____$1 = cljs.core.count.call(null, c__5461__auto____$1);
-                                    var b__7435 = cljs.core.chunk_buffer.call(null, size__5462__auto____$1);
+                                    var b__11866 = cljs.core.chunk_buffer.call(null, size__5462__auto____$1);
                                     if (function() {
-                                      var i__7434 = 0;
+                                      var i__11865 = 0;
                                       while (true) {
-                                        if (i__7434 < size__5462__auto____$1) {
-                                          var column_number = cljs.core._nth.call(null, c__5461__auto____$1, i__7434);
-                                          cljs.core.chunk_append.call(null, b__7435, [cljs.core.str("\x3ctd"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3cdiv"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3c"), cljs.core.str("img"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), [cljs.core.str(3 * row_number + column_number)].join(""), new cljs.core.Keyword(null, 
+                                        if (i__11865 < size__5462__auto____$1) {
+                                          var column_number = cljs.core._nth.call(null, c__5461__auto____$1, i__11865);
+                                          cljs.core.chunk_append.call(null, b__11866, [cljs.core.str("\x3ctd"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3cdiv"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3c"), cljs.core.str("img"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), [cljs.core.str(3 * row_number + column_number)].join(""), new cljs.core.Keyword(null, 
                                           "class", "class", -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""));
-                                          var G__7444 = i__7434 + 1;
-                                          i__7434 = G__7444;
+                                          var G__11875 = i__11865 + 1;
+                                          i__11865 = G__11875;
                                           continue;
                                         } else {
                                           return true;
@@ -39081,14 +39081,14 @@ tic_tac_toe.core.init = function tic_tac_toe$core$init() {
                                         break;
                                       }
                                     }()) {
-                                      return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7435), tic_tac_toe$core$init_$_iter__7420_$_iter__7432.call(null, cljs.core.chunk_rest.call(null, s__7433__$2)));
+                                      return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__11866), tic_tac_toe$core$init_$_iter__11851_$_iter__11863.call(null, cljs.core.chunk_rest.call(null, s__11864__$2)));
                                     } else {
-                                      return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7435), null);
+                                      return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__11866), null);
                                     }
                                   } else {
-                                    var column_number = cljs.core.first.call(null, s__7433__$2);
+                                    var column_number = cljs.core.first.call(null, s__11864__$2);
                                     return cljs.core.cons.call(null, [cljs.core.str("\x3ctd"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3cdiv"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3c"), cljs.core.str("img"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), [cljs.core.str(3 * row_number + column_number)].join(""), new cljs.core.Keyword(null, "class", "class", 
-                                    -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""), tic_tac_toe$core$init_$_iter__7420_$_iter__7432.call(null, cljs.core.rest.call(null, s__7433__$2)));
+                                    -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""), tic_tac_toe$core$init_$_iter__11851_$_iter__11863.call(null, cljs.core.rest.call(null, s__11864__$2)));
                                   }
                                 } else {
                                   return null;
@@ -39096,13 +39096,13 @@ tic_tac_toe.core.init = function tic_tac_toe$core$init() {
                                 break;
                               }
                             };
-                          }(i__7422, row_number, c__5461__auto__, size__5462__auto__, b__7423, s__7421__$2, temp__4425__auto__), null, null);
+                          }(i__11853, row_number, c__5461__auto__, size__5462__auto__, b__11854, s__11852__$2, temp__4425__auto__), null, null);
                         };
-                      }(i__7422, row_number, c__5461__auto__, size__5462__auto__, b__7423, s__7421__$2, temp__4425__auto__);
+                      }(i__11853, row_number, c__5461__auto__, size__5462__auto__, b__11854, s__11852__$2, temp__4425__auto__);
                       return iter__5463__auto__.call(null, cljs.core.range.call(null, 3));
                     }())), cljs.core.str("\x3c/tr\x3e")].join(""));
-                    var G__7445 = i__7422 + 1;
-                    i__7422 = G__7445;
+                    var G__11876 = i__11853 + 1;
+                    i__11853 = G__11876;
                     continue;
                   } else {
                     return true;
@@ -39110,35 +39110,35 @@ tic_tac_toe.core.init = function tic_tac_toe$core$init() {
                   break;
                 }
               }()) {
-                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7423), tic_tac_toe$core$init_$_iter__7420.call(null, cljs.core.chunk_rest.call(null, s__7421__$2)));
+                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__11854), tic_tac_toe$core$init_$_iter__11851.call(null, cljs.core.chunk_rest.call(null, s__11852__$2)));
               } else {
-                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7423), null);
+                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__11854), null);
               }
             } else {
-              var row_number = cljs.core.first.call(null, s__7421__$2);
+              var row_number = cljs.core.first.call(null, s__11852__$2);
               return cljs.core.cons.call(null, [cljs.core.str("\x3ctr"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function() {
-                var iter__5463__auto__ = function(row_number, s__7421__$2, temp__4425__auto__) {
-                  return function tic_tac_toe$core$init_$_iter__7420_$_iter__7436(s__7437) {
-                    return new cljs.core.LazySeq(null, function(row_number, s__7421__$2, temp__4425__auto__) {
+                var iter__5463__auto__ = function(row_number, s__11852__$2, temp__4425__auto__) {
+                  return function tic_tac_toe$core$init_$_iter__11851_$_iter__11867(s__11868) {
+                    return new cljs.core.LazySeq(null, function(row_number, s__11852__$2, temp__4425__auto__) {
                       return function() {
-                        var s__7437__$1 = s__7437;
+                        var s__11868__$1 = s__11868;
                         while (true) {
-                          var temp__4425__auto____$1 = cljs.core.seq.call(null, s__7437__$1);
+                          var temp__4425__auto____$1 = cljs.core.seq.call(null, s__11868__$1);
                           if (temp__4425__auto____$1) {
-                            var s__7437__$2 = temp__4425__auto____$1;
-                            if (cljs.core.chunked_seq_QMARK_.call(null, s__7437__$2)) {
-                              var c__5461__auto__ = cljs.core.chunk_first.call(null, s__7437__$2);
+                            var s__11868__$2 = temp__4425__auto____$1;
+                            if (cljs.core.chunked_seq_QMARK_.call(null, s__11868__$2)) {
+                              var c__5461__auto__ = cljs.core.chunk_first.call(null, s__11868__$2);
                               var size__5462__auto__ = cljs.core.count.call(null, c__5461__auto__);
-                              var b__7439 = cljs.core.chunk_buffer.call(null, size__5462__auto__);
+                              var b__11870 = cljs.core.chunk_buffer.call(null, size__5462__auto__);
                               if (function() {
-                                var i__7438 = 0;
+                                var i__11869 = 0;
                                 while (true) {
-                                  if (i__7438 < size__5462__auto__) {
-                                    var column_number = cljs.core._nth.call(null, c__5461__auto__, i__7438);
-                                    cljs.core.chunk_append.call(null, b__7439, [cljs.core.str("\x3ctd"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3cdiv"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3c"), cljs.core.str("img"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), [cljs.core.str(3 * row_number + column_number)].join(""), new cljs.core.Keyword(null, "class", 
-                                    "class", -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""));
-                                    var G__7446 = i__7438 + 1;
-                                    i__7438 = G__7446;
+                                  if (i__11869 < size__5462__auto__) {
+                                    var column_number = cljs.core._nth.call(null, c__5461__auto__, i__11869);
+                                    cljs.core.chunk_append.call(null, b__11870, [cljs.core.str("\x3ctd"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3cdiv"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3c"), cljs.core.str("img"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), [cljs.core.str(3 * row_number + column_number)].join(""), new cljs.core.Keyword(null, 
+                                    "class", "class", -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""));
+                                    var G__11877 = i__11869 + 1;
+                                    i__11869 = G__11877;
                                     continue;
                                   } else {
                                     return true;
@@ -39146,14 +39146,14 @@ tic_tac_toe.core.init = function tic_tac_toe$core$init() {
                                   break;
                                 }
                               }()) {
-                                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7439), tic_tac_toe$core$init_$_iter__7420_$_iter__7436.call(null, cljs.core.chunk_rest.call(null, s__7437__$2)));
+                                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__11870), tic_tac_toe$core$init_$_iter__11851_$_iter__11867.call(null, cljs.core.chunk_rest.call(null, s__11868__$2)));
                               } else {
-                                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7439), null);
+                                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__11870), null);
                               }
                             } else {
-                              var column_number = cljs.core.first.call(null, s__7437__$2);
+                              var column_number = cljs.core.first.call(null, s__11868__$2);
                               return cljs.core.cons.call(null, [cljs.core.str("\x3ctd"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3cdiv"), cljs.core.str(""), cljs.core.str("\x3e"), cljs.core.str("\x3c"), cljs.core.str("img"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "id", "id", -1388402092), [cljs.core.str(3 * row_number + column_number)].join(""), new cljs.core.Keyword(null, "class", "class", 
-                              -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""), tic_tac_toe$core$init_$_iter__7420_$_iter__7436.call(null, cljs.core.rest.call(null, s__7437__$2)));
+                              -2030961996), null, new cljs.core.Keyword(null, "src", "src", -1651076051), (new cljs.core.Keyword(null, "e", "e", 1381269198)).cljs$core$IFn$_invoke$arity$1(tic_tac_toe.core.picture_map)], null))), cljs.core.str(" /\x3e"), cljs.core.str("\x3c/div\x3e"), cljs.core.str("\x3c/td\x3e")].join(""), tic_tac_toe$core$init_$_iter__11851_$_iter__11867.call(null, cljs.core.rest.call(null, s__11868__$2)));
                             }
                           } else {
                             return null;
@@ -39161,11 +39161,11 @@ tic_tac_toe.core.init = function tic_tac_toe$core$init() {
                           break;
                         }
                       };
-                    }(row_number, s__7421__$2, temp__4425__auto__), null, null);
+                    }(row_number, s__11852__$2, temp__4425__auto__), null, null);
                   };
-                }(row_number, s__7421__$2, temp__4425__auto__);
+                }(row_number, s__11852__$2, temp__4425__auto__);
                 return iter__5463__auto__.call(null, cljs.core.range.call(null, 3));
-              }())), cljs.core.str("\x3c/tr\x3e")].join(""), tic_tac_toe$core$init_$_iter__7420.call(null, cljs.core.rest.call(null, s__7421__$2)));
+              }())), cljs.core.str("\x3c/tr\x3e")].join(""), tic_tac_toe$core$init_$_iter__11851.call(null, cljs.core.rest.call(null, s__11852__$2)));
             }
           } else {
             return null;
@@ -39176,71 +39176,71 @@ tic_tac_toe.core.init = function tic_tac_toe$core$init() {
     };
     return iter__5463__auto__.call(null, cljs.core.range.call(null, 3));
   }())), cljs.core.str("\x3c/table\x3e"), cljs.core.str('\x3cbutton id\x3d"button"\x3enew game\x3c/button\x3e'), cljs.core.str("\x3ch1"), cljs.core.str(' id\x3d"game-state"'), cljs.core.str("\x3e"), cljs.core.str("Game state: "), cljs.core.str(hiccups.runtime.render_html.call(null, tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)))), cljs.core.str("\x3c/h1\x3e"), cljs.core.str("\x3c/center\x3e")].join(""));
-  var seq__7440_7447 = cljs.core.seq.call(null, cljs.core.range.call(null, 9));
-  var chunk__7441_7448 = null;
-  var count__7442_7449 = 0;
-  var i__7443_7450 = 0;
+  var seq__11871_11878 = cljs.core.seq.call(null, cljs.core.range.call(null, 9));
+  var chunk__11872_11879 = null;
+  var count__11873_11880 = 0;
+  var i__11874_11881 = 0;
   while (true) {
-    if (i__7443_7450 < count__7442_7449) {
-      var i_7451 = cljs.core._nth.call(null, chunk__7441_7448, i__7443_7450);
-      domina.events.listen_BANG_.call(null, domina.by_id.call(null, [cljs.core.str(i_7451)].join("")), new cljs.core.Keyword(null, "click", "click", 1912301393), function(seq__7440_7447, chunk__7441_7448, count__7442_7449, i__7443_7450, i_7451) {
+    if (i__11874_11881 < count__11873_11880) {
+      var i_11882 = cljs.core._nth.call(null, chunk__11872_11879, i__11874_11881);
+      domina.events.listen_BANG_.call(null, domina.by_id.call(null, [cljs.core.str(i_11882)].join("")), new cljs.core.Keyword(null, "click", "click", 1912301393), function(seq__11871_11878, chunk__11872_11879, count__11873_11880, i__11874_11881, i_11882) {
         return function(evt) {
-          cljs.core.println.call(null, "square clicked!", i_7451);
-          if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "e", "e", 1381269198), cljs.core.get.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state), i_7451)) && cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "ongoing", "ongoing", -30673877), tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)))) {
-            cljs.core.swap_BANG_.call(null, tic_tac_toe.core.game_state, tic_tac_toe.core.make_move, i_7451);
+          cljs.core.println.call(null, "square clicked!", i_11882);
+          if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "e", "e", 1381269198), cljs.core.get.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state), i_11882)) && cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "ongoing", "ongoing", -30673877), tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)))) {
+            cljs.core.swap_BANG_.call(null, tic_tac_toe.core.game_state, tic_tac_toe.core.make_move, i_11882);
             cljs.core.println.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state), tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)));
             return tic_tac_toe.core.update_dom.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state));
           } else {
             return null;
           }
         };
-      }(seq__7440_7447, chunk__7441_7448, count__7442_7449, i__7443_7450, i_7451));
-      var G__7452 = seq__7440_7447;
-      var G__7453 = chunk__7441_7448;
-      var G__7454 = count__7442_7449;
-      var G__7455 = i__7443_7450 + 1;
-      seq__7440_7447 = G__7452;
-      chunk__7441_7448 = G__7453;
-      count__7442_7449 = G__7454;
-      i__7443_7450 = G__7455;
+      }(seq__11871_11878, chunk__11872_11879, count__11873_11880, i__11874_11881, i_11882));
+      var G__11883 = seq__11871_11878;
+      var G__11884 = chunk__11872_11879;
+      var G__11885 = count__11873_11880;
+      var G__11886 = i__11874_11881 + 1;
+      seq__11871_11878 = G__11883;
+      chunk__11872_11879 = G__11884;
+      count__11873_11880 = G__11885;
+      i__11874_11881 = G__11886;
       continue;
     } else {
-      var temp__4425__auto___7456 = cljs.core.seq.call(null, seq__7440_7447);
-      if (temp__4425__auto___7456) {
-        var seq__7440_7457__$1 = temp__4425__auto___7456;
-        if (cljs.core.chunked_seq_QMARK_.call(null, seq__7440_7457__$1)) {
-          var c__5494__auto___7458 = cljs.core.chunk_first.call(null, seq__7440_7457__$1);
-          var G__7459 = cljs.core.chunk_rest.call(null, seq__7440_7457__$1);
-          var G__7460 = c__5494__auto___7458;
-          var G__7461 = cljs.core.count.call(null, c__5494__auto___7458);
-          var G__7462 = 0;
-          seq__7440_7447 = G__7459;
-          chunk__7441_7448 = G__7460;
-          count__7442_7449 = G__7461;
-          i__7443_7450 = G__7462;
+      var temp__4425__auto___11887 = cljs.core.seq.call(null, seq__11871_11878);
+      if (temp__4425__auto___11887) {
+        var seq__11871_11888__$1 = temp__4425__auto___11887;
+        if (cljs.core.chunked_seq_QMARK_.call(null, seq__11871_11888__$1)) {
+          var c__5494__auto___11889 = cljs.core.chunk_first.call(null, seq__11871_11888__$1);
+          var G__11890 = cljs.core.chunk_rest.call(null, seq__11871_11888__$1);
+          var G__11891 = c__5494__auto___11889;
+          var G__11892 = cljs.core.count.call(null, c__5494__auto___11889);
+          var G__11893 = 0;
+          seq__11871_11878 = G__11890;
+          chunk__11872_11879 = G__11891;
+          count__11873_11880 = G__11892;
+          i__11874_11881 = G__11893;
           continue;
         } else {
-          var i_7463 = cljs.core.first.call(null, seq__7440_7457__$1);
-          domina.events.listen_BANG_.call(null, domina.by_id.call(null, [cljs.core.str(i_7463)].join("")), new cljs.core.Keyword(null, "click", "click", 1912301393), function(seq__7440_7447, chunk__7441_7448, count__7442_7449, i__7443_7450, i_7463, seq__7440_7457__$1, temp__4425__auto___7456) {
+          var i_11894 = cljs.core.first.call(null, seq__11871_11888__$1);
+          domina.events.listen_BANG_.call(null, domina.by_id.call(null, [cljs.core.str(i_11894)].join("")), new cljs.core.Keyword(null, "click", "click", 1912301393), function(seq__11871_11878, chunk__11872_11879, count__11873_11880, i__11874_11881, i_11894, seq__11871_11888__$1, temp__4425__auto___11887) {
             return function(evt) {
-              cljs.core.println.call(null, "square clicked!", i_7463);
-              if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "e", "e", 1381269198), cljs.core.get.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state), i_7463)) && cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "ongoing", "ongoing", -30673877), tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)))) {
-                cljs.core.swap_BANG_.call(null, tic_tac_toe.core.game_state, tic_tac_toe.core.make_move, i_7463);
+              cljs.core.println.call(null, "square clicked!", i_11894);
+              if (cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "e", "e", 1381269198), cljs.core.get.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state), i_11894)) && cljs.core._EQ_.call(null, new cljs.core.Keyword(null, "ongoing", "ongoing", -30673877), tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)))) {
+                cljs.core.swap_BANG_.call(null, tic_tac_toe.core.game_state, tic_tac_toe.core.make_move, i_11894);
                 cljs.core.println.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state), tic_tac_toe.game.get_game_state.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state)));
                 return tic_tac_toe.core.update_dom.call(null, cljs.core.deref.call(null, tic_tac_toe.core.game_state));
               } else {
                 return null;
               }
             };
-          }(seq__7440_7447, chunk__7441_7448, count__7442_7449, i__7443_7450, i_7463, seq__7440_7457__$1, temp__4425__auto___7456));
-          var G__7464 = cljs.core.next.call(null, seq__7440_7457__$1);
-          var G__7465 = null;
-          var G__7466 = 0;
-          var G__7467 = 0;
-          seq__7440_7447 = G__7464;
-          chunk__7441_7448 = G__7465;
-          count__7442_7449 = G__7466;
-          i__7443_7450 = G__7467;
+          }(seq__11871_11878, chunk__11872_11879, count__11873_11880, i__11874_11881, i_11894, seq__11871_11888__$1, temp__4425__auto___11887));
+          var G__11895 = cljs.core.next.call(null, seq__11871_11888__$1);
+          var G__11896 = null;
+          var G__11897 = 0;
+          var G__11898 = 0;
+          seq__11871_11878 = G__11895;
+          chunk__11872_11879 = G__11896;
+          count__11873_11880 = G__11897;
+          i__11874_11881 = G__11898;
           continue;
         }
       } else {

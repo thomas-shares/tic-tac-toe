@@ -72,7 +72,7 @@
   (let [open-spaces (available-squares board)
         weighted-moves          (map #(score-move board who %)  open-spaces)
         best-move (first (sort-by second > weighted-moves))  ]
-  ; (println weighted-moves)
+   ;(println best-move)
    best-move))
 
 (def choose-move (memoize choose-move))
