@@ -11,28 +11,20 @@
                  [domina "1.0.3"]
                  [hiccups "0.3.0"]]
   :main ^:skip-aot tic-tac-toe.core
+
   :plugins [[lein-ring "0.8.12"]
             [lein-cljsbuild "1.1.2"]]
+
   :ring {:handler tic-tac-toe.core/app}
 
-
-  :profiles {:dev {:plugins [[com.keminglabs/cljx "0.6.0"]]}
-             :uberjar {:aot :all}}
-  :cljx {:builds [{:source-paths ["src-cljx"]
-                 :output-path "src"
-                 :rules :clj}
-
-                {:source-paths ["src-cljx"]
-                 :output-path "src-cljs"
-                 :rules :cljs}]}
- :core.typed {:check [tic-tac-toe.test]}
+  :profiles {:uberjar {:aot :all}}
 
   :target-path "target/%s"
 
   :cljsbuild {
     :builds [{
         ; The path to the top-level ClojureScript source directory:
-        :source-paths ["src-cljs"]
+        :source-paths ["src"]
         ; The standard ClojureScript compiler options:
         ; (See the ClojureScript compiler documentation for details.)
         :compiler {

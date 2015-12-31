@@ -20,7 +20,8 @@
     (let [value (board i)
           node (d/by-id (str i))]
       (d/set-attr! node :src (value picture-map))
-      (d/set-text! (d/by-id "game-state") (str "Game state: " (game/get-game-state board))))))
+      (d/set-text! (d/by-id "game-state")
+        (str "Game state: " (game/get-game-state board))))))
 
 (defn make-move [board pos]
   (let [piece :x
