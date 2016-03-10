@@ -9,9 +9,9 @@ The common code is in game.cljc and is used both by core.clj and core.cljs.
 
 ## Usage
 
-    ```lein cljsbuild once```
+    lein cljsbuild once
 
-    ```lein ring server```
+    lein ring server
 
 Now point your web browser to <http://localhost:3000> for the Clojure version
 and <http://localhost:3000/cljs> for the ClojureScript version.
