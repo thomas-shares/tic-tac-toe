@@ -3,17 +3,18 @@
   :url "https://github.com/thomas-shares/tic-tac-toe"
   :license {:name "Apache V2 License"
             :url "http://www.apache.org/licenses/LICENSE-2.0"}
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [compojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [compojure "1.5.0"]
                  [hiccup "1.0.5"]
                  [ring/ring-jetty-adapter "1.4.0"]
-                 [org.clojure/clojurescript "1.7.189"]
+                 [org.clojure/clojurescript "1.7.228"]
                  [domina "1.0.3"]
                  [hiccups "0.3.0"]]
   :main ^:skip-aot tic-tac-toe.core
 
-  :plugins [[lein-ring "0.8.12"]
-            [lein-cljsbuild "1.1.2"]]
+  :plugins [[lein-ring "0.9.7"]
+            [lein-cljfmt "0.4.1"]
+            [lein-cljsbuild "1.1.3"]]
 
   :ring {:handler tic-tac-toe.core/app}
 
@@ -22,13 +23,13 @@
   :target-path "target/%s"
 
   :cljsbuild {
-    :builds [{
+              :builds [{
         ; The path to the top-level ClojureScript source directory:
-        :source-paths ["src"]
+                        :source-paths ["src"]
         ; The standard ClojureScript compiler options:
         ; (See the ClojureScript compiler documentation for details.)
-        :compiler {
+                        :compiler {
           ;:preamble ["reagent/react.js"]
-          :output-to "resources/public/js/cljs.js"
-          :optimizations :whitespace
-          :pretty-print true}}]})
+                                   :output-to "resources/public/js/cljs.js"
+                                   :optimizations :whitespace
+                                   :pretty-print true}}]})
