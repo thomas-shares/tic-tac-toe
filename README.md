@@ -1,16 +1,20 @@
 # tic-tac-toe
 
-This is a sample demonstrating a simple minimax AI for playing Tic Tac Toe (eke Noughts And Crosses). It uses Reader Conditionals from Clojure 1.7 to expose both a Clojure implementation (that lives on the server) and a ClojureScript implementation (that runs on the client).
+This is a sample demonstrating a simple minimax AI for playing Tic Tac Toe
+(AKA Noughts And Crosses). It uses Reader Conditionals from Clojure 1.7 to expose
+both a Clojure implementation (that lives on the server) and a ClojureScript
+implementation (that runs on the client).
 
 The common code is in game.cljc and is used both by core.clj and core.cljs.
 
 ## Usage
 
-    lein cljsbuild once
+    ```lein cljsbuild once```
 
-    lein ring server
+    ```lein ring server```
 
-Now point your web browser to http://localhost:3000 for the Clojure version and http://localhost:3000/cljs for the ClojureScrip version.
+Now point your web browser to <http://localhost:3000> for the Clojure version
+and <http://localhost:3000/cljs> for the ClojureScript version.
 
 ## License
 
