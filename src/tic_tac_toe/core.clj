@@ -10,7 +10,7 @@
             [hiccup.page :as page]
             [hiccup.element :as element]
             [ring.util.response :as resp]
-            [ring.middleware.session :as session ]
+            [ring.middleware.session :as session]
             [ring.util.response :as response]))
 
 (def picture-map {:e "/empty.png" :x "/cross.png" :o "/nought.png"})
@@ -36,20 +36,20 @@
                      [:tr
                       (for [[column-number cell] (map-indexed vector row)]
                        [:td
-                        (if (and (= :e cell) (= :ongoing game-state) )
+                        (if (and (= :e cell) (= :ongoing game-state))
                            [:a {:href (str "/place-piece/" (+  column-number (* row-number 3)) "/x")}
                              (element/image (cell picture-map))]
-                          (element/image (cell picture-map))
-                          )
+                          (element/image (cell picture-map)))])])]
 
-                        ])])]
-                 (form/form-to [:post "/post"] (form/submit-button "new game" ))
+
+
+                  (form/form-to [:post "/post"] (form/submit-button "new game"))
                   [:h1 "game state: " (name game-state)]])))
 
 (defn get-response [board session]
   (response/content-type
             (assoc (response/response (get-board board))
-                                      :session (assoc session :board board))
+                   :session (assoc session :board board))
             "text/html"))
 
 
@@ -61,7 +61,7 @@
          (response/content-type
           (assoc (response/response (get-board board))
             :session (assoc session :board board))
-          "text/html" )))
+          "text/html")))
   (GET "/place-piece/:pos/:piece"  {{pos :pos piece :piece} :params
                                      session :session}
 
@@ -84,13 +84,13 @@
 
 (defn make-server
   ([]
-     (make-server 8000))
+   (make-server 8000))
   ([port]
-     (let [port port]
-       (run-jetty (var app) {:port port :join? false}))))
+   (let [port port]
+     (run-jetty (var app) {:port port :join? false}))))
 
 (defn -main
   ([]
-     (make-server 8000))
+   (make-server 8000))
   ([port]
-     (make-server (Integer/parseInt port))))
+   (make-server (Integer/parseInt port))))
